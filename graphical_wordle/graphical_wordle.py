@@ -54,8 +54,8 @@ class Wordle:
             else:
                 self.letters[self.word[i]] = 1
 
-        print(self.word)
-        print(self.letters)
+        # print(self.word)
+        # print(self.letters)
 
     def in_progress(self):
         return self.current
