@@ -28,9 +28,12 @@ dark_grey = 58, 58, 60
 green = 83, 142, 78
 yellow = 181, 159, 59
 
+screen.fill(black)
+pygame.display.flip()
+
 # defines the tile and warning graphics for the self.board
 font = pygame.font.SysFont(None, 50)
-invalidfont = pygame.font.SysFont(None, 20)
+smallfont = pygame.font.SysFont(None, 20)
 
 
 class Wordle:
