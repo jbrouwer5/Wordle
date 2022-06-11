@@ -1,5 +1,6 @@
 # pip3 install pyyaml
 # pip3 install random-word
+from multiprocessing.sharedctypes import Value
 from random import random
 from random_word import RandomWords
 from PyDictionary import PyDictionary
@@ -34,6 +35,7 @@ pygame.display.flip()
 # defines the tile and warning graphics for the self.board
 font = pygame.font.SysFont(None, 50)
 smallfont = pygame.font.SysFont(None, 20)
+invalidfont = pygame.font.SysFont(None, 20)
 
 
 class Wordle:
@@ -215,15 +217,18 @@ while 1:
                         invalid_count = 50
             else:
                 if curr_length < 5:
-                    curr_guess += chr(event.key).upper()
-                    print(curr_guess)
-                    curr_length += 1
+
+                    try:
+                        letter_input = event.key
+                        curr_guess += chr(letter_input).upper()
+                        curr_length += 1
+                    except ValueError:
+                        pass
 
     result = game.in_progress()
     draw_wordle(game, curr_guess)
 
     if invalid_count:
-        print("invald")
         invalid = invalidfont.render(
             "Not in word list", True, white)
         invalidRect = invalid.get_rect()
