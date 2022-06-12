@@ -1,19 +1,18 @@
 # pip3 install pyyaml
 # pip3 install random-word
-from multiprocessing.sharedctypes import Value
-from random import random
-from random_word import RandomWords
-from PyDictionary import PyDictionary
 
-# to use system dictionary
 import re
-
-# to use nltk dictionary
-from nltk.corpus import words
-import nltk
-# nltk.download('words') -> Used to initially download the dictionary
-
+from PyDictionary import PyDictionary
+from random_word import RandomWords
+from random import random
+from multiprocessing.sharedctypes import Value
 import pygame
+
+import nltk
+# uncomment next two lines the first time you use the program 
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+from nltk.corpus import wordnet as words 
 
 pygame.init()
 
